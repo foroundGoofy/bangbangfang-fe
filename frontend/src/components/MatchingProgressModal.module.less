@@ -1,0 +1,86 @@
+@import "~antd/lib/style/themes/default.less";
+
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .content {
+    background: #fff;
+    padding: 32px;
+    border-radius: 8px;
+    width: 560px;
+    text-align: center;
+
+    .icon {
+      font-size: 48px;
+      color: @primary-color;
+      margin-bottom: 16px;
+    }
+
+    .alert {
+      margin: 16px 0;
+      border-radius: 4px;
+    }
+
+    .progress {
+      margin: 24px 0;
+
+      :global(.ant-progress-text) {
+        font-size: 16px;
+        color: @text-color;
+      }
+    }
+
+    .stage {
+      font-size: 16px;
+      color: @text-color-secondary;
+      margin: 16px 0;
+    }
+
+    .tagContainer {
+      position: relative;
+      height: 120px;
+      margin: 24px 0;
+
+      .animatedTag {
+        position: absolute;
+        animation: float 2s ease-in-out infinite;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        &:nth-child(odd) {
+          animation-delay: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .modalWrapper {
+    .content {
+      width: 90%;
+      padding: 24px;
+
+      .icon {
+        font-size: 36px;
+      }
+    }
+  }
+}
